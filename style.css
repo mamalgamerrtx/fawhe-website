@@ -1,0 +1,610 @@
+/* <style> */
+/* Reset & Core Setup */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    "Montserrat",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  color: #111;
+  background-color: #000;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Fixed/Sticky Top Bar */
+.top-bar {
+  /* position: sticky; */
+  top: 0;
+  z-index: 1000;
+  background: #000000;
+  color: #ffffff;
+  padding: 0.9rem 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.top-bar-title {
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-align: left;
+  width: 100%;
+}
+
+/* Container Utility */
+.section-container {
+  max-width: 1320px;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 4.5rem 2rem;
+  /* display: flex; */
+  /* justify-content: space-around; */
+}
+
+/* Section 1: Hero (White Background) */
+.section-hero {
+  background-color: #ffffff;
+  /* background: #520202; */
+  color: #111;
+  width: 100%;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.logo-wrapper {
+  margin-bottom: 2rem;
+}
+
+.logo-badge {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.logo-symbol {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #2e7d32 0%, #1b5e20 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border: 3px solid #d32f2f;
+  flex-shrink: 0;
+}
+
+.logo-heading-fawhe {
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: #cf3832;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.logo-subtext {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #276738;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+}
+
+.logo-tagline {
+  border-top: 2px solid #cf3832;
+  margin-top: 0.6rem;
+  padding-top: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: 0.18em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.green-badge-card {
+  background-color: #315830;
+  color: #ffffff;
+  border-radius: 36px;
+  padding: 2.5rem 2.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.green-badge-card p {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.crop {
+  aspect-ratio: 16 / 9; /* Or 4 / 3, 1 / 1, etc. */
+  width: 100%;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.rounded-image-box {
+  /* 1. Prevent shrinking */
+  flex-shrink: 0; /* If inside a Flexbox container */
+  min-width: 480px; /* Change this to the exact minimum width you want to lock in */
+  width: 100%; /* Allows it to be wider on big screens, but never smaller than min-width */
+
+  /* 2. Lock the height */
+  height: 480px; /* Replaced height: 50% with a fixed height */
+  min-height: 480px; /* Guarantees it never squishes vertically */
+
+  /* 3. Style & Crop */
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure the image inside fills the box without distorting */
+.rounded-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Section 2: Mission (Black Background) */
+.section-mission {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.section-headline {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.outlined-card {
+  border: 3px solid #ffffff;
+  border-radius: 36px;
+  padding: 3rem 2.75rem;
+  background: transparent;
+}
+
+.outlined-card h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.75rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.outlined-card p {
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #e5e5e5;
+}
+
+/* Section 3: Programs (Black Background) */
+.section-programs {
+  background-color: #000000;
+  color: #ffffff;
+  border-top: 1px solid #1a1a1a;
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.programs-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.programs-photos .rounded-image-box {
+  min-height: 290px;
+  max-height: 340px;
+}
+
+.program-card-content {
+  border: 3px solid #ffffff;
+  border-radius: 36px;
+  padding: 3.25rem 3rem;
+}
+
+.program-card-content h2 {
+  font-size: 3.25rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 2rem;
+}
+
+.program-item {
+  margin-bottom: 2.5rem;
+}
+
+.program-item:last-child {
+  margin-bottom: 0;
+}
+
+.program-item p {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: #e5e5e5;
+}
+
+.program-item strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Section 4: Get Involved (Red Background) */
+.section-involved {
+  background-color: #b71c1c;
+  color: #ffffff;
+}
+
+.involved-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.involved-card {
+  border: 3px solid #ffffff;
+  border-radius: 36px;
+  padding: 3.5rem 3rem;
+  background: transparent;
+}
+
+.involved-card h2 {
+  font-size: 3.25rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.75rem;
+}
+
+.involved-card p {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+/* Section 5: Donate (Green Background) */
+.section-donate {
+  background-color: #176a30;
+  color: #ffffff;
+}
+
+.donate-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.donate-card {
+  border: 3px solid #ffffff;
+  border-radius: 36px;
+  padding: 3.5rem 3rem;
+  background: transparent;
+}
+
+.donate-header-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.donate-header-row h2 {
+  font-size: 3.25rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  /* text-decoration: underline; */
+  text-underline-offset: 8px;
+  line-height: 1;
+}
+
+.donate-arrow {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #176a30;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  transform: rotate(180deg);
+}
+
+.donate-card p {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+/* Section 6: Contact (White Background) */
+.section-contact {
+  background-color: #ffffff;
+  color: #111;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.contact-info-card {
+  border: 3px solid #111;
+  border-radius: 36px;
+  padding: 3.5rem 3rem;
+}
+
+.contact-info-card h2 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 2rem;
+}
+
+.contact-info-card p {
+  font-size: 1.15rem;
+  line-height: 1.85;
+  color: #222;
+}
+
+.contact-info-card a {
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Google Form recreation */
+.form-wrapper {
+  background: #242424;
+  border: 1px solid #dadce0;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.form-top-accent {
+  height: 10px;
+  /* background-color: #5b50d6; */
+}
+
+.form-content {
+  padding: 2.25rem 2.5rem;
+}
+
+.form-content h3 {
+  color: white;
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.form-content .form-desc {
+  color: white;
+  font-size: 0.95rem;
+  /* color: #555; */
+  margin-bottom: 1.5rem;
+}
+
+.form-account-strip {
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0.85rem 0;
+  font-size: 0.85rem;
+  color: #555;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.8rem;
+  /* margin-left: 1.8rem; */
+}
+
+.form-group label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  /* margin-left: 1rem; */
+  color: #202124;
+}
+/* Using text-indent (cleanest for shifting placeholder text horizontally) */
+input::placeholder {
+  /* text-indent: 12px; */
+  color: #888;
+  padding-left: 12px;
+}
+textarea::placeholder {
+  padding: 12px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  /* border: 10px solid #dadce0; */
+  border-radius: 10px;
+  /* border-bottom: 1px solid #dadce0; */
+  padding: 0.6rem 0;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom: 2px solid #5b50d6;
+}
+
+.form-btn {
+  background-color: #5b50d6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: opacity 0.2s;
+}
+
+.form-btn:hover {
+  background-color: #fff;
+  color: black;
+}
+
+/* Section 7: Final CTA & Footer (Warm Brown Background) */
+.section-footer {
+  background-color: #784212;
+  color: #ffffff;
+  padding-bottom: 5rem;
+}
+
+.footer-title {
+  font-size: 2.75rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: 0.01em;
+}
+
+.action-pills-list {
+  max-width: 580px;
+  margin: 0 auto 4.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.action-pill {
+  background-color: #f7e6c4;
+  color: #784212;
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.action-pill:hover {
+  transform: translateY(-2px);
+  background-color: #fff1d6;
+}
+
+.footer-bottom-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.footer-contact-info h3 {
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.footer-contact-info p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #fce7d2;
+}
+
+.footer-logo-card {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .hero-grid,
+  .mission-grid,
+  .programs-grid,
+  .involved-grid,
+  .donate-grid,
+  .contact-grid,
+  .footer-bottom-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .section-headline,
+  .program-card-content h2,
+  .involved-card h2,
+  .donate-header-row h2,
+  .contact-info-card h2,
+  .footer-title {
+    font-size: 2.3rem;
+  }
+
+  .rounded-image-box {
+    min-height: 340px;
+  }
+}
+/* </style> */
