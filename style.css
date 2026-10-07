@@ -346,6 +346,18 @@ img {
   text-underline-offset: 8px;
   line-height: 1;
 }
+.form-link {
+  color: #ffffff;
+}
+.donate {
+  font-size: 40px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  /* text-decoration: underline; */
+  text-underline-offset: 8px;
+  line-height: 1;
+}
 
 .donate-arrow {
   width: 48px;
@@ -580,9 +592,29 @@ textarea::placeholder {
   padding: 2.25rem 2rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
+/* footer end */
 
-/* Responsive */
+/* media  */
+/* ==========================================
+   Mobile & Tablet Responsive Styles
+   ========================================== */
 @media (max-width: 960px) {
+  /* 1. Prevent screen overflow */
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* 2. Container full width with comfortable padding */
+  .section-container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 3rem 1.25rem;
+    box-sizing: border-box;
+  }
+
+  /* 3. Convert all grids into standard vertical stacks */
   .hero-grid,
   .mission-grid,
   .programs-grid,
@@ -590,21 +622,94 @@ textarea::placeholder {
   .donate-grid,
   .contact-grid,
   .footer-bottom-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 2rem !important;
+    width: 100% !important;
   }
 
+  /* 4. Kill the 480px minimum width blowout on images */
+  .rounded-image-box {
+    min-width: 0 !important;
+    width: 100% !important;
+    height: 280px !important;
+    min-height: auto !important;
+    border-radius: 24px;
+  }
+
+  .rounded-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* 5. Responsive typography */
   .section-headline,
   .program-card-content h2,
   .involved-card h2,
   .donate-header-row h2,
   .contact-info-card h2,
   .footer-title {
-    font-size: 2.3rem;
+    font-size: clamp(2rem, 6vw, 2.5rem);
+    line-height: 1.15;
   }
 
-  .rounded-image-box {
-    min-height: 340px;
+  .logo-heading-fawhe {
+    font-size: 2.4rem;
+  }
+
+  /* 6. Card & container padding adjustments */
+  .green-badge-card,
+  .outlined-card,
+  .program-card-content,
+  .involved-card,
+  .donate-card,
+  .contact-info-card,
+  .form-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 2rem 1.5rem !important;
+    border-radius: 24px;
+    box-sizing: border-box;
+  }
+
+  /* 7. Action pills & footer adjustments */
+  .action-pills-list {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  .action-pill {
+    font-size: 1.1rem;
+    padding: 0.85rem 1.25rem;
+  }
+
+  .donate-arrow {
+    transform: rotate(90deg); /* Points down when stacked */
   }
 }
-/* </style> */
+@media (max-width: 960px) {
+  /* Allow the hero-content wrapper to order its children */
+  .hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  /* 1. Logo badge sits at the very top */
+  .logo-wrapper {
+    order: 1;
+  }
+
+  /* 2. Image box comes next */
+  .hero-grid > .rounded-image-box {
+    order: 2;
+  }
+
+  /* 3. The green badge card is placed underneath the image */
+  .green-badge-card {
+    order: 3;
+    margin-top: 1.5rem; /* Optional: adds clean spacing below the image */
+  }
+}
